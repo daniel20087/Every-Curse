@@ -7,6 +7,7 @@ function XLCurseEveryFloor:GiveXLCurse()
         LevelCurse.CURSE_OF_BLIND |
         LevelCurse.CURSE_OF_MAZE |
         LevelCurse.CURSE_OF_THE_LOST |
+        LevelCurse.CURSE_OF_DARKNESS|
         LevelCurse.CURSE_OF_THE_UNKNOWN
     )
     end
@@ -20,6 +21,7 @@ function XLCurseEveryFloor:GiveXLCurse()
         LevelCurse.CURSE_OF_BLIND |
         LevelCurse.CURSE_OF_MAZE |
         LevelCurse.CURSE_OF_THE_LOST |
+        LevelCurse.CURSE_OF_DARKNESS|
         LevelCurse.CURSE_OF_THE_UNKNOWN
     )
     end
@@ -30,6 +32,7 @@ function XLCurseEveryFloor:GiveXLCurse()
         LevelCurse.CURSE_OF_BLIND |
         LevelCurse.CURSE_OF_MAZE |
         LevelCurse.CURSE_OF_THE_LOST |
+        LevelCurse.CURSE_OF_DARKNESS|
         LevelCurse.CURSE_OF_THE_UNKNOWN
     )
     end
@@ -39,6 +42,7 @@ function XLCurseEveryFloor:GiveXLCurse()
         LevelCurse.CURSE_OF_BLIND |
         LevelCurse.CURSE_OF_MAZE |
         LevelCurse.CURSE_OF_THE_LOST |
+        LevelCurse.CURSE_OF_DARKNESS|
         LevelCurse.CURSE_OF_THE_UNKNOWN
     )
 end
