@@ -15,8 +15,8 @@ function XLCurseEveryFloor:GiveXLCurse()
     -- Get current level.
     local level = Game():GetLevel()
 
-    -- stage is The Void (Stage 12) skip
-    if level:GetAbsoluteStage() == LevelStage.STAGE7 then -- STAGE7 corresponds to The Void (Stage 12)
+    -- stage is The Void (Stage 12) skip XL
+    if level:GetAbsoluteStage() == LevelStage.STAGE7 then -- Dellirium Floor
         return (
         LevelCurse.CURSE_OF_BLIND |
         LevelCurse.CURSE_OF_MAZE |
@@ -26,8 +26,18 @@ function XLCurseEveryFloor:GiveXLCurse()
     )
     end
 
-    -- stage is the Hush floor skip
-    if level:GetAbsoluteStage() == LevelStage.STAGE6 and level:IsAltStage() then -- STAGE6 (Stage 10) + AltStage for Hush
+    -- stage is the Hush floor skip XL
+    if level:GetAbsoluteStage() == LevelStage.STAGE4_3 then -- Hush floor
+        return (
+        LevelCurse.CURSE_OF_BLIND |
+        LevelCurse.CURSE_OF_MAZE |
+        LevelCurse.CURSE_OF_THE_LOST |
+        LevelCurse.CURSE_OF_DARKNESS|
+        LevelCurse.CURSE_OF_THE_UNKNOWN
+    )
+    end
+    -- if its 2nd womb floor dont make it XL
+    if level:GetAbsoluteStage() == LevelStage.STAGE4_2 then -- Womb 2nd floor
         return (
         LevelCurse.CURSE_OF_BLIND |
         LevelCurse.CURSE_OF_MAZE |
