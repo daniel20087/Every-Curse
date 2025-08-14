@@ -8,9 +8,10 @@ function EveryCurseEveryFloor:GiveEveryCurse()
 
     -- Get current level.
     local level = Game():GetLevel()
+    local isaacPlayerID = Isaac.GetPlayer()
     -- no void, hush, womb ii, mom
-    local stage = level:GetAbsoluteStage()
-    if stage == LevelStage.STAGE7 or stage == LevelStage.STAGE3_2 or stage == LevelStage.STAGE4_2 or stage == LevelStage.STAGE4_3 or stage == LevelStage.STAGE4_3 then
+    local stageCurse = level:GetAbsoluteStage()
+    if stageCurse == LevelStage.STAGE7 or stageCurse == LevelStage.STAGE3_2 or stageCurse == LevelStage.STAGE4_2 or stageCurse == LevelStage.STAGE4_3 or stageCurse == LevelStage.STAGE4_3 then
         return (
         LevelCurse.CURSE_OF_BLIND |
         LevelCurse.CURSE_OF_MAZE |
@@ -19,7 +20,26 @@ function EveryCurseEveryFloor:GiveEveryCurse()
         LevelCurse.CURSE_OF_THE_UNKNOWN
         )
     end
+    local hasKeyPiece1 = isaacPlayerID:GetCollectibleNum(CollectibleType.COLLECTIBLE_KEY_PIECE_1)
+    local hasKeyPiece2 = isaacPlayerID:GetCollectibleNum(CollectibleType.COLLECTIBLE_KEY_PIECE_2)
+    if stageCurse == LevelStage.STAGE6 then -- this is for the player to be able to reach void in a run as void portal doesnt spawn in blue baby fight
+        if hasKeyPiece1 == 0 then
+            isaacPlayerID:AddCollectible(CollectibleType.COLLECTIBLE_KEY_PIECE_1)
+        end
 
+        if hasKeyPiece2 == 0 then
+            isaacPlayerID:AddCollectible(CollectibleType.COLLECTIBLE_KEY_PIECE_2)
+        end
+
+        return(
+        LevelCurse.CURSE_OF_LABYRINTH |
+        LevelCurse.CURSE_OF_BLIND |
+        LevelCurse.CURSE_OF_MAZE |
+        LevelCurse.CURSE_OF_THE_LOST |
+        LevelCurse.CURSE_OF_DARKNESS|
+        LevelCurse.CURSE_OF_THE_UNKNOWN
+    )
+    end
     return (
         LevelCurse.CURSE_OF_LABYRINTH |
         LevelCurse.CURSE_OF_BLIND |
